@@ -22,11 +22,14 @@ group by state
 order by avg_sex_ratio desc;
 
 # avg literacy ratio
+  
 select state, round(avg(literacy),0) as avg_literacy 
 from literacy.`literacy dataset1` 
 group by state
 order by avg_literacy desc;
 
+#avg literacy ratio having avg literacy>90
+  
 select state, round(avg(literacy),0) as avg_literacy 
 from literacy.`literacy dataset1` 
 group by state
@@ -63,7 +66,7 @@ group by state
 order by avg_literacy_ratio desc
 limit 3;
 select * from topstates;
-
+  
 drop table if exists bottomstates;
 create table bottomstates
 (state varchar(255),
@@ -77,7 +80,7 @@ order by avg_literacy_ratio asc
 limit 3;
 select * from bottomstates;
 
-## union operator
+
 select * from (
 select * from topstates) as a
 union
@@ -103,6 +106,7 @@ inner join literacy.`literacy dataset2` b
 on a.district= b.district;
 
 # district level males, females data
+  
 select c.district, c.state, 
 round(c.population/(c.sex_ratio+1),0) as males, 
 round((c.population * c.sex_ratio)/(c.sex_ratio+1),0) as females from 
