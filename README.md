@@ -1,2 +1,2 @@
 # Census 
-A SQL project analysing India's census.
+SQL project analysing India's census.
